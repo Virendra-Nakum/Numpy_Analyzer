@@ -73,6 +73,9 @@ class DataAnalytics:
                         col = int(input("Enter the column index:- "))
                         print(f"Element at ({dep}, {row}, {col}): {data[dep, row, col]}")
 
+                    else:
+                        print("Invalid choice!")
+
                 elif choice == 2:
                     print("Slicing the array:")
                     if data.ndim == 1:
@@ -250,12 +253,14 @@ class DataAnalytics:
                 print(data)
                 print("Split Array:")
                 print(arr2)
+
             else:
                 print("Invalid Choice!")
         except:
             print("Something Went Wrong!")
 
     def Aggregates_operations(self, data):
+
         try:
   
             print()
@@ -305,29 +310,36 @@ class DataAnalytics:
 
     def start_program(self):
         while True :
-            self.main_menu()
+            try :
 
-            choice = int(input("Enter Your Choice : "))
+                self.main_menu()
 
-            if choice == 1:
-                self.data = obj.create_array()
-                obj.indexing_operations(self.data)
+                choice = int(input("Enter Your Choice : "))
 
-            elif choice == 2:
-                obj.math_operation(self.data)
+                if choice == 1:
+                    self.data = obj.create_array()
+                    obj.indexing_operations(self.data)
 
-            elif choice == 3:
-                obj.combine_arrays(self.data)
+                elif choice == 2:
+                    obj.math_operation(self.data)
 
-            elif choice == 4:
-                obj.search_arr(self.data)
+                elif choice == 3:
+                    obj.combine_arrays(self.data)
 
-            elif choice == 5:
-                obj.Aggregates_operations(self.data) 
+                elif choice == 4:
+                    obj.search_arr(self.data)
 
-            elif choice == 6:   
-                print("Thank You for using Numpy Analyzer! Goodbye!")
-                break
+                elif choice == 5:
+                    obj.Aggregates_operations(self.data) 
+
+                elif choice == 6:   
+                    print("Thank You for using Numpy Analyzer! Goodbye!")
+                    break
+
+                else:
+                    print("Invalid choice! Please try again.")
+            except:
+                print("Invalid input. Please enter a valid choice.")
 
 
 obj=DataAnalytics()

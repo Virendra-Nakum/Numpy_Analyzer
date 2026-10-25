@@ -23,7 +23,7 @@ NumPy Analyzer is a beginner-friendly, command-line program built with Python an
 
 ## Install Python and NumPy
 
-1. Install Python 3.9 or later for your operating system. On Windows, enable **Add Python to PATH** during installation if that option appears.
+1. Install Python 3.x or later for your operating system. On Windows, enable **Add Python to PATH** during installation if that option appears.
 2. Open PowerShell or the VS Code integrated terminal and verify Python is available:
 
    ```powershell
