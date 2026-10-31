@@ -22,26 +22,30 @@ class DataAnalytics:
                 print(f"Elements : {self.data}")
                 print("Elements added successfully!")
                 return self.data
-            
+
             elif choice == 2:
-                rows = int(input("Enter the number of rows for 2D array:- "))
-                cols = int(input("Enter the number of columns for 2D array:- "))     
-                arr = input(f"Enter {rows * cols} elements for the array, separated by spaces:- ").split()
-                arr1 = list(map(int, arr))
-                arr2 = np.array(arr1).reshape(rows, cols)
-                self.data = arr2
-                return self.data
-            
+                rows = int(input("Enter number of rows: "))
+                cols = int(input("Enter number of columns: "))
+                values = list(map(int, input(f"Enter {rows * cols} elements: ").split()))
+
+                if len(values) != rows * cols:
+                    print(f"Please enter exactly {rows * cols} elements.")
+                    return
+
+                self.data = np.array(values).reshape(rows, cols)
+
             elif choice == 3:
-                depth = int(input("Enter the depth for 3D array:- "))
-                rows = int(input("Enter the number of rows for 3D array:- "))
-                cols = int(input("Enter the number of columns for 3D array:- "))
-                arr = input(f"Enter {depth * rows * cols} elements for the array, separated by spaces:- ").split()
-                arr1 = list(map(int, arr))
-                arr2 = np.array(arr1).reshape(depth, rows, cols)
-                self.data = arr2
-                return self.data
-            
+                depth = int(input("Enter depth: "))
+                rows = int(input("Enter number of rows: "))
+                cols = int(input("Enter number of columns: "))
+                total = depth * rows * cols
+                values = list(map(int, input(f"Enter {total} elements: ").split()))
+
+                if len(values) != total:
+                    print(f"Please enter exactly {total} elements.")
+                    return
+
+                self.data = np.array(values).reshape(depth, rows, cols)
             else:
                 print("Invalid choice!")
 
@@ -122,6 +126,11 @@ class DataAnalytics:
             print("2. Subtraction")
             print("3. Multiplication")
             print("4. Division")
+            print("5. Dot Product")
+
+            if data is None:
+                print("Create an array first.")
+                return
 
             choice = int(input("Enter your choice:- "))
 
@@ -157,6 +166,11 @@ class DataAnalytics:
                 print("Result of division:")
                 print(result)
 
+            elif choice == 5:
+                result = np.dot(data, arr2)
+                print("Result of dot product:")
+                print(result)
+
             else :
                 print("Invalid choice!")
  
@@ -170,6 +184,10 @@ class DataAnalytics:
             print("1. Search a value")
             print("2. Sort the array")
             print("3. Filter values")
+            
+            if data is None:
+                print("Create an array first.")
+                return
 
             choice = int(input("Enter your choice:- "))
 
@@ -232,6 +250,10 @@ class DataAnalytics:
             print("1. Combine arrays")
             print("2. Split array")
 
+            if data is None:
+                print("Create an array first.")
+                return
+
             choice = int(input("Enter your choice:- "))
 
             if choice == 1:
@@ -268,6 +290,11 @@ class DataAnalytics:
             print("1. Sum")
             print("2. Mean")
             print("3. Median")
+            print("4. Variance")
+            
+            if data is None:
+                print("Create an array first.")
+                return
 
             choice = int(input("Enter your choice: "))
 
@@ -288,6 +315,9 @@ class DataAnalytics:
                 print(data)
                 median_arr = np.median(data)
                 print(f"Median of all elements: {median_arr}")
+
+            elif choice == 4:
+                print(np.var(data))
 
             else:
                 print("Invalid choice!")
@@ -344,4 +374,5 @@ class DataAnalytics:
 
 obj=DataAnalytics()
 obj.start_program()
-
+ 
+ 
